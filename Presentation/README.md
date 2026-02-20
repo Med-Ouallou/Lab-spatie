@@ -39,22 +39,6 @@ color: #5B2C6F
 
 ---
 
-# Concepts importants
-
-## 👤 User
-- Peut avoir plusieurs rôles
-- Peut avoir des permissions directes
-
-## 🛡 Role
-- Groupe de permissions
-- Exemple : Admin, Editor, User
-
-## 🔑 Permission
-- Action spécifique autorisée
-- Exemple : create post, delete user
-
----
-
 # Architecture interne
 
 ## Tables principales
