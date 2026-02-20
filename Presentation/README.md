@@ -32,7 +32,7 @@ color: #5B2C6F
 
 - Créer des **rôles** (Admin, Editor…)
 - Créer des **permissions** (create, edit, delete…)
-- Associer permissions ↔ rôles
+- Associer permissions <-> rôles
 - Vérifier les accès utilisateurs
 
 👉 Gestion dynamique des autorisations via base de données.
