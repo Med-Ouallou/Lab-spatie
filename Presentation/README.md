@@ -103,3 +103,97 @@ php artisan migrate
 - Utilisé en production
 
 - Facilement extensible
+---
+
+### Exemple :
+
+- Admin → create, edit, delete
+- Editor → edit
+- User → view
+
+Relation : many-to-many
+
+---
+
+# Configuration du modèle User
+
+Dans le modèle User :
+
+```php
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    // Trait
+    use HasRoles;
+}
+```
+
+- assignRole()
+
+- givePermissionTo()
+
+- hasRole()
+
+- can()
+
+---
+
+# Création des rôles et permissions
+
+```php
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+Permission::create(['name' => 'edit articles']);
+Role::create(['name' => 'admin']);
+```
+
+---
+
+# Attribuer des rôles et permissions
+
+```php
+$user->assignRole('admin');
+$user->givePermissionTo('edit articles');
+```
+---
+
+# Vérification des permissions
+
+Dans un Controller : 
+```php
+if ($user->can('edit articles')) {
+    // Autorisé
+}
+```
+
+---
+
+# Vérification des permissions
+## Dans une Blade
+
+```php
+@can('edit articles')
+    <a href="#">Edit</a>
+@endcan
+```
+
+---
+
+# Avec Middleware
+
+```php
+Route::group(['middleware' => ['role:admin']], function () {
+    // Routes protégées
+});
+```
+
+---
+
+Dans Blade
+```php
+@can('edit articles')
+    <button>Edit</button>
+@endcan
+```
