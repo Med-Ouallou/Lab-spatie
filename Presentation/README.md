@@ -196,4 +196,5 @@ Dans Blade
 @can('edit articles')
     <button>Edit</button>
 @endcan
+
 ```
